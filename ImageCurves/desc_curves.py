@@ -51,7 +51,8 @@ print("추정된 계수:", coefficients)
 
 # 그래프 플로팅
 x_range = np.linspace(min(x_data), max(x_data), 100)  # 예측할 범위의 x 값 생성
-y_predicted = cubic_function(x_range, *coefficients)    # 추정된 모델을 이용하여 y 예측
+y_predicted = cubic_function(x_range, *coefficients)
+print(y_predicted)# 추정된 모델을 이용하여 y 예측
 
 plt.scatter(x_data, y_data, label='data')              # 데이터 포인트 플로팅
 plt.plot(x_range, y_predicted, label="est eq", color='red')  # 추정된 삼차함수 플로팅
