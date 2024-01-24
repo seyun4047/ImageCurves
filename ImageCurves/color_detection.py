@@ -59,9 +59,13 @@ class Detect_color:
     #-----------------------------------------------------
     # curve의 Y값 이 변하면 지금 찍힌 점의 왼쪽, 오른쪽 점을 파악하고 선을 부드러운 곡선으로 만들기위해 변경되는 Y값을 반환함
     def transCurve(self, X, Y, userX, userY):
-        X.append(userX)
-        X.sort()
-        xIdx = X.index(userX)
+        if userX in X:
+            xIdx = X.index(userX)
+            Y[xIdx] = userY
+        else:
+            X.append(userX)
+            X.sort()
+            xIdx = X.index(userX)
         tmpX = [i for i in range(X[xIdx-1]+1, X[xIdx+1], 1)]
         newX = [X[xIdx-1], userX, X[xIdx+1]]
         newY = [Y[X[xIdx-1]], userY, Y[X[xIdx+1]]]

@@ -14,14 +14,15 @@ DC = Detect_color("src/img/test.JPG")
 # X, Y, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,40,200) # X: 150인 값을 170으로 바꿨을 때
 # curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
 
-X, curveList, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,150,170) # X: 150인 값을 170으로 바꿨을 때
-curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
+# X, curveList, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,150,170) # X: 150인 값을 170으로 바꿨을 때
+# curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
 
-X, curveList, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,100,200) # X: 150인 값을 170으로 바꿨을 때
+X, curveList, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,63,200) # X: 150인 값을 170으로 바꿨을 때
 curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
+print(curveList[63])
 
-X, curveList, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,40,200) # X: 150인 값을 170으로 바꿨을 때
-curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
+# X, curveList, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,40,200) # X: 150인 값을 170으로 바꿨을 때
+# curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
 
 
 
