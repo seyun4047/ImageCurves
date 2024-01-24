@@ -42,7 +42,7 @@ class Color_set_creator:
     # dims: 컬러 채널수(지금은 흑백으로 진행하기때문에 1, rgb->3)
     def reloadImg(self, ih, iw, oriImg, s, e, board, dims):
         # reImg = np.zeros((ih, iw, dims), dtype=np.uint8)
-        reImg = oriImg
+        reImg = oriImg.copy()
         for clrNum in range(s, e+1, 1):
             tLst = board[clrNum]
             for x, y in tLst:
