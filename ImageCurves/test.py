@@ -17,11 +17,11 @@ DC = Detect_color("src/img/test.JPG")
 # curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
 #----------------------------------------
 # S자 곡선
-X, curveList, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,191,220)
-curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
-
-X, curveList, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,63,50)
-curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
+# X, curveList, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,191,220)
+# curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
+#
+# X, curveList, lDotX, rDotX, changedColorList = DC.transCurve(X,curveList,63,50)
+# curveList = DC.changeCurve(curveList, changedColorList, lDotX, rDotX)
 
 
 
