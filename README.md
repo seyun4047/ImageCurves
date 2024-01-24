@@ -2,6 +2,9 @@
 
 여러 이미지 편집 프로그램의 Image Curve를 본인만의 방식으로 구현하기 위해 프로젝트를 시작함.
 
+***Original Curve***
+src="https://github.com/seyun4047/ImageCurves/assets/73819780/30b8f6e5-0f81-46f4-8bc4-56c221b37515">
+
 ------------------
 **구현곡선**
 ------------------
