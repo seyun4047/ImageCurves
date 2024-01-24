@@ -52,6 +52,7 @@ class Color_set_creator:
 
 #---------------------------------------------------
 # test
+
 # Cs = Color_set_creator()
 # oriImg = cv2.imread("src/img/test2.png")
 # oriImg = cv2.cvtColor(oriImg, cv2.COLOR_BGR2GRAY)

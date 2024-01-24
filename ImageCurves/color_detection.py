@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 from collections import deque
 from scipy.optimize import curve_fit
 # image setting with cv2
-oriImg = cv2.imread("src/img/test.JPG")
-oriImg = cv2.cvtColor(oriImg, cv2.COLOR_BGR2GRAY)
-ih, iw = oriImg.shape[:2]
+# oriImg = cv2.imread("src/img/test.JPG")
+# oriImg = cv2.cvtColor(oriImg, cv2.COLOR_BGR2GRAY)
+# ih, iw = oriImg.shape[:2]
 # cv2.imshow("img", oriImg)
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
@@ -16,8 +16,21 @@ ih, iw = oriImg.shape[:2]
 # find that color(brightness) Algorithm
 
 #-----------------------------------------------------
-class Find_thatcolor():
+class Detect_color:
+    # oriImg = cv2.imread("")
+    # ih = 0
+    # iw = 0
 # 0~255 해당하는 좌표값 찾아서 리스트로 구성예정
+    def __init__(self, src):
+        self.oriImg = cv2.imread(src)
+        self.oriImg = cv2.cvtColor(self.oriImg, cv2.COLOR_BGR2GRAY)
+        self.ih, self.iw = self.oriImg.shape[:2]
+
+    def getOriImg(self):
+        return self.oriImg
+
+    def getHW(self):
+        return self.ih, self.iw
     def findThatColor(self, cnum, ih, iw):
         # use bfs
         visited = [[0]*(ih+1) for _ in range(iw+1)]
@@ -34,7 +47,7 @@ class Find_thatcolor():
                 ny=cy+dy
                 if 0<=nx<=iw-1 and 0<=ny<=ih-1 and visited[nx][ny]==0:
                     q.append([nx,ny])
-                    if oriImg[ny][nx] == cnum:
+                    if self.oriImg[ny][nx] == cnum:
                         print("(",nx,ny,")")
                     visited[nx][ny] = 1
 
@@ -68,7 +81,7 @@ class Find_thatcolor():
         count=0
         # colorRangeLen = rDotX - lDotX + 1
         for colorIdx in range(lDotX+1, rDotX, 1):
-            curveList[colorIdx] = changedColorList[count]
+            curveList[colorIdx] = int(changedColorList[count])
             count += 1
         # print(curveList)
         return curveList
@@ -102,20 +115,21 @@ class Find_thatcolor():
         plt.show()
 
 #-----------------------------------------------------
-curveList = [i for i in range(0,256,1)] # CurveList x좌표: idx | y좌표: idx에 해당하는 값
-X = [0, 63, 127, 191, 255]
-fT = Find_thatcolor()
-#-----------------------------------------------------
-# test
-X, Y, lDotX, rDotX, changedColorList = fT.transCurve(X,curveList,150,170) # X: 150인 값을 170으로 바꿨을 때
-curveList = fT.changeCurve(curveList, changedColorList, lDotX, rDotX)
-
-X, Y, lDotX, rDotX, changedColorList = fT.transCurve(X,curveList,100,200) # X: 150인 값을 170으로 바꿨을 때
-curveList = fT.changeCurve(curveList, changedColorList, lDotX, rDotX)
-
-X, Y, lDotX, rDotX, changedColorList = fT.transCurve(X,curveList,40,200) # X: 150인 값을 170으로 바꿨을 때
-curveList = fT.changeCurve(curveList, changedColorList, lDotX, rDotX)
-
-#-----------------------------------------------------
-# Image Curve 시각화
-fT.drawCurve(curveList, X)
+# settings
+# curveList = [i for i in range(0,256,1)] # CurveList x좌표: idx | y좌표: idx에 해당하는 값
+# # print(curveList)
+# X = [0, 63, 127, 191, 255]
+# fT = Detect_color("src/img/test.JPG")
+# #-----------------------------------------------------
+# # test
+# X, Y, lDotX, rDotX, changedColorList = fT.transCurve(X,curveList,150,170) # X: 150인 값을 170으로 바꿨을 때
+# curveList = fT.changeCurve(curveList, changedColorList, lDotX, rDotX)
+#
+# X, Y, lDotX, rDotX, changedColorList = fT.transCurve(X,curveList,100,200) # X: 150인 값을 170으로 바꿨을 때
+# curveList = fT.changeCurve(curveList, changedColorList, lDotX, rDotX)
+#
+# X, Y, lDotX, rDotX, changedColorList = fT.transCurve(X,curveList,40,200) # X: 150인 값을 170으로 바꿨을 때
+# curveList = fT.changeCurve(curveList, changedColorList, lDotX, rDotX)
+# #-----------------------------------------------------
+# # Image Curve 시각화
+# fT.drawCurve(curveList, X)
