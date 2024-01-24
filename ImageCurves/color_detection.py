@@ -81,7 +81,13 @@ class Detect_color:
         count=0
         # colorRangeLen = rDotX - lDotX + 1
         for colorIdx in range(lDotX+1, rDotX, 1):
-            curveList[colorIdx] = int(changedColorList[count])
+            c = changedColorList[count]
+            if c>255:
+                curveList[colorIdx] = 255
+            elif c<0:
+                curveList[colorIdx] = 0
+            else:
+                curveList[colorIdx] = int(c)
             count += 1
         # print(curveList)
         return curveList
