@@ -22,13 +22,14 @@ class Detect_color:
     # iw = 0
 # 0~255 해당하는 좌표값 찾아서 리스트로 구성예정
     def __init__(self, src):
-        self.oriImg = cv2.imread(src)
-        self.oriImg = cv2.cvtColor(self.oriImg, cv2.COLOR_BGR2GRAY)
+        self.realImg = cv2.imread(src)
+        self.oriImg = cv2.cvtColor(self.realImg, cv2.COLOR_BGR2GRAY)
         self.ih, self.iw = self.oriImg.shape[:2]
 
     def getOriImg(self):
         return self.oriImg
-
+    def getRealImg(self):
+        return self.realImg
     def getHW(self):
         return self.ih, self.iw
     def findThatColor(self, cnum, ih, iw):
